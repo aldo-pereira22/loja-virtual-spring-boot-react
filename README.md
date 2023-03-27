@@ -1,1 +1,1 @@
-# loja-virtual-spring-boot-react
+# Loja Virtual
