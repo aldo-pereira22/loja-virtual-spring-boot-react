@@ -15,37 +15,40 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import dev.entity.Cidade;
 import dev.entity.Estado;
+import dev.service.CidadeService;
 import dev.service.EstadoSerivce;
 
 @RestController
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/cidade")
+public class CidadeController {
 
     @Autowired
-    private EstadoSerivce estadoSerivce;
+    private CidadeService cidadeService;
 
     @GetMapping("/")
-    public List<Estado> listarTodos() {
+    public List<Cidade> listarTodos() {
 
-        return estadoSerivce.listarTodos();
+        return cidadeService.listarTodos();
 
     }
 
     @PostMapping("/")
-    public Estado inserir( @RequestBody Estado estado) {
-        return estadoSerivce.inserir(estado);
+    public Cidade inserir( @RequestBody Cidade cidade) {
+        return cidadeService.inserir(cidade);
     }
 
     @PutMapping("/")
-    public Estado alterar(@RequestBody Estado estado) {
+    public Cidade alterar(@RequestBody Cidade cidade) {
 
-        return estadoSerivce.alterar(estado);
+        return cidadeService.alterar(cidade);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable Long id) {
-        estadoSerivce.excluir(id);
+        cidadeService.excluir(id);
         return ResponseEntity.ok().build();
     }
 }
