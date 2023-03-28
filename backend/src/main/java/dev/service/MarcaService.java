@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dev.entity.Categoria;
+
 import dev.entity.Marca;
-import dev.repository.CategoriaRepository;
+
 import dev.repository.MarcaRepository;
 
 
