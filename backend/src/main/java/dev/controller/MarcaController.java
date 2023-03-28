@@ -1,5 +1,6 @@
 package dev.controller;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -16,37 +17,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.entity.Cidade;
-import dev.service.CidadeService;
+import dev.entity.Categoria;
+import dev.entity.Marca;
+import dev.service.CategoriaService;
+import dev.service.MarcaService;
 
 @RestController
-@RequestMapping("/api/cidade")
-public class CidadeController {
+@RequestMapping("/api/marca")
+public class MarcaController {
 
     @Autowired
-    private CidadeService cidadeService;
+    private MarcaService marcaService;
 
     @GetMapping("/")
-    public List<Cidade> listarTodos() {
+    public List<Marca> listarTodos() {
 
-        return cidadeService.listarTodos();
+        return marcaService.listarTodos();
 
     }
 
     @PostMapping("/")
-    public Cidade inserir( @RequestBody Cidade cidade) {
-        return cidadeService.inserir(cidade);
+    public Marca inserir( @RequestBody Marca objeto) {
+        objeto.setDataCriacao(new Date());
+        return marcaService.inserir(objeto);
     }
 
     @PutMapping("/")
-    public Cidade alterar(@RequestBody Cidade cidade) {
-
-        return cidadeService.alterar(cidade);
+    public Marca alterar(@RequestBody Marca objeto) {
+        objeto.setDataAtualizacao(new Date());
+        return marcaService.alterar(objeto);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable Long id) {
-        cidadeService.excluir(id);
+        marcaService.excluir(id);
         return ResponseEntity.ok().build();
     }
 }

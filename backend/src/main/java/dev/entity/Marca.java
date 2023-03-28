@@ -15,9 +15,9 @@ import lombok.Data;
 
 
 @Entity
-@Table(name = "categoria")
+@Table(name = "marca")
 @Data
-public class Categoria {
+public class Marca {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
