@@ -37,12 +37,12 @@ public class ProdutoImagensService {
         Produto produto = produtoRepository.findById(idProduto).get();
         ProdutoImagens objeto = new ProdutoImagens();
 
-        System.out.println("FILEE" + file);
 
         try {
 
             if(!file.isEmpty()){
                 byte[] bytes = file.getBytes();
+    
                 String  nomeImagem = String.valueOf(produto.getId() +file.getOriginalFilename());
                 Path caminho = Paths
                 .get("/home/aldo/projetos/imagens/"+nomeImagem);
