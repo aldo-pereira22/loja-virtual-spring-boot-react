@@ -6,9 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dev.entity.Categoria;
 import dev.entity.Produto;
-import dev.repository.CategoriaRepository;
 import dev.repository.ProdutoRepository;
 
 

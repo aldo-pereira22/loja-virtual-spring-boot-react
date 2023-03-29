@@ -15,41 +15,42 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-
-import dev.entity.Marca;
-import dev.service.MarcaService;
+import dev.entity.ProdutoImagens;
+import dev.service.ProdutoImagensService;
 
 @RestController
-@RequestMapping("/api/marca")
-public class MarcaController {
+@RequestMapping("/api/produtoImagens")
+public class ProdutoImagensController {
 
     @Autowired
-    private MarcaService marcaService;
+    private ProdutoImagensService produtoImagensService;
 
     @GetMapping("/")
-    public List<Marca> listarTodos() {
+    public List<ProdutoImagens> listarTodos() {
 
-        return marcaService.listarTodos();
+        return produtoImagensService.listarTodos();
 
     }
 
     @PostMapping("/")
-    public Marca inserir( @RequestBody Marca objeto) {
-        objeto.setDataCriacao(new Date());
-        return marcaService.inserir(objeto);
+    public ProdutoImagens inserir( @RequestParam("idProduto") Long idProduto, @RequestParam("file") MultipartFile file) {
+        System.out.println("\n\n\n\n\nFILE"+file);
+        return produtoImagensService.inserir(idProduto, file);
     }
 
     @PutMapping("/")
-    public Marca alterar(@RequestBody Marca objeto) {
+    public ProdutoImagens alterar(@RequestBody ProdutoImagens objeto) {
         objeto.setDataAtualizacao(new Date());
-        return marcaService.alterar(objeto);
+        return produtoImagensService.alterar(objeto);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable Long id) {
-        marcaService.excluir(id);
+        produtoImagensService.excluir(id);
         return ResponseEntity.ok().build();
     }
 }

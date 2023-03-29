@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.entity.Categoria;
 import dev.entity.Pessoa;
-import dev.service.CategoriaService;
 import dev.service.PessoaService;
 
 @RestController
