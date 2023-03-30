@@ -1,6 +1,5 @@
 package dev.controller;
 
-import java.util.Date;
 
 
 
@@ -14,22 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.dto.PessoaClienteRequestDTO;
 import dev.entity.Pessoa;
-import dev.service.PessoaService;
+import dev.service.PessoaClienteService;
+
 
 @RestController
 @RequestMapping("/api/cliente")
 public class PessoaClienteController {
 
     @Autowired
-    private PessoaService pessoaService;
+    private PessoaClienteService pessoaClienteService;
 
 
 
     @PostMapping("/")
     public Pessoa inserir( @RequestBody PessoaClienteRequestDTO pessoaClienteRequestDTO) {
     
-        Pessoa pessoa = new PessoaClienteRequestDTO().converter(pessoaClienteRequestDTO);
-        return pessoaService.inserir(pessoa);
+        return pessoaClienteService.registrar(pessoaClienteRequestDTO);
     }
 
 }

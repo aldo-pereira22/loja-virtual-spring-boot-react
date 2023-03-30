@@ -1,7 +1,6 @@
 package dev.dto;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.context.support.BeanDefinitionDsl.BeanSupplierContext;
 
 import dev.entity.Cidade;
 import dev.entity.Pessoa;
