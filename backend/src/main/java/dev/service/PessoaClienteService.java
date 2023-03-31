@@ -30,7 +30,7 @@ public class PessoaClienteService {
         permissaoPessoaService.vincularPessoaPermissaoCliente(pessoaNova);
   
         try {
-            emailService.enviarEmail(pessoaNova.getEmail(), "Cadastra na LoJa ", "O registro"+
+            emailService.enviarEmail(pessoaNova.getEmail(), "Cadastra na LoJa: Teste Aldo ", "O registro "+
             "na loja foi realizado com sucesso. Em breve vc receberá sua Senha de acesso!");
             return pessoaNova;
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public class PessoaClienteService {
             return null;
         }
   
-    }
+    } 
 
 
 

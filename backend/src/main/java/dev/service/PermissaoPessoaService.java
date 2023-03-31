@@ -30,7 +30,7 @@ public class PermissaoPessoaService {
 
         List<Permissao> listaPermissao = permissaoRepository.findByNome("Cliente");    
 
-        if(listaPermissao.size() > 0 ){
+        if(listaPermissao.size() > 0 ){ 
             PermissaoPessoa permissaoPessoa = new PermissaoPessoa();
             permissaoPessoa.setPessoa(pessoa);
             permissaoPessoa.setPermissao(listaPermissao.get(0));
