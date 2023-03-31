@@ -19,12 +19,9 @@ public class EmailService {
 
     @Value("${spring.mail.username}")
     private String remetente;
-
-    @Value("${spring.mail.password}")
-    private String senha;
-
+    
     public String enviarEmail(String destinatario, String titulo, String mensagem){
-            System.out.println("\nSENHAAA -> "+ senha);
+
         try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setFrom(remetente);

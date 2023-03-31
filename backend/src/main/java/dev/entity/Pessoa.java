@@ -31,6 +31,11 @@ public class Pessoa {
     private Long id;
     private String nome;
     
+    private String codigoRecuperacaoSenha;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataEnvioCodigo;
+
     private String cpf;
     private String email;
     private String senha;
