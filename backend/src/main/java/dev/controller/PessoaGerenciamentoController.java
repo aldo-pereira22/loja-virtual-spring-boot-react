@@ -26,10 +26,16 @@ public class PessoaGerenciamentoController {
     private PessoaGerenciamentoService pessoaGerenciamentoService;
 
 
-    @PostMapping("/")
-    public String recuperarCodigo( @RequestParam("email") String email) {
+    @PostMapping("/senha-codigo")
+    public String recuperarCodigo( @RequestBody Pessoa pessoa) {
         
-        return pessoaGerenciamentoService.solicitarCodigo(email);
+        return pessoaGerenciamentoService.solicitarCodigo(pessoa.getEmail());
+    }
+
+    @PostMapping("/senha-alterar")
+    public String alterarSenha( @RequestBody Pessoa pessoa) {
+        
+        return pessoaGerenciamentoService.alterarSenha(pessoa);
     }
 
 }
