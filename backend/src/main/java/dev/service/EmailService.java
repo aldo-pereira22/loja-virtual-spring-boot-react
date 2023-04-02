@@ -51,14 +51,14 @@ public class EmailService {
 
 public void enviarEmailTemplate(String destinatario, String titulo, Map<String, Object> propriedades) {
     MimeMessage mimeMessage =javaMailSender.createMimeMessage();
+    
     try {
-
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
 
         mimeMessageHelper.setSubject(titulo);
         mimeMessageHelper.setFrom(remetente);
         mimeMessageHelper.setTo(destinatario);
-        
+         
         mimeMessageHelper.setText(getConteudoTemplate(propriedades), true);
 
         javaMailSender.send(mimeMessageHelper.getMimeMessage());
