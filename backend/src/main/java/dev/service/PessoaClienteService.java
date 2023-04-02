@@ -1,7 +1,10 @@
 package dev.service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,15 +32,20 @@ public class PessoaClienteService {
         Pessoa pessoaNova =  pessoaClienteRepository.save(pessoa);
         permissaoPessoaService.vincularPessoaPermissaoCliente(pessoaNova);
   
-        try {
-            emailService.enviarEmail(pessoaNova.getEmail(), "Cadastra na LoJa: Teste Aldo ", "O registro "+
-            "na loja foi realizado com sucesso. Em breve vc receberá sua Senha de acesso!");
+        // try {
+        //     emailService.enviarEmail(pessoaNova.getEmail(), "Cadastra na LoJa: Teste Aldo ", "O registro "+
+        //     "na loja foi realizado com sucesso. Em breve vc receberá sua Senha de acesso!");
+        //     return pessoaNova;
+        // } catch (Exception e) {
+        //     System.out.println("\n\n\nErro -> "+e.getMessage());
+        //     return null;
+        // }
+
+        Map<String, Object> propriedades = new HashMap<>();
+        propriedades.put("nome", pessoaNova.getNome());
+        propriedades.put("mensagem", "Email cadastrado na Loja Teste");
+            emailService.enviarEmailTemplate(pessoaNova.getEmail(), "Cadastro na Loja TESTE",propriedades );
             return pessoaNova;
-        } catch (Exception e) {
-            System.out.println("\n\n\nErro -> "+e.getMessage());
-            return null;
-        }
-  
     } 
 
 
