@@ -35,17 +35,20 @@ public class EstadoController {
     }
 
     @PostMapping("/")
+    @CrossOrigin("http://localhost:3001")
     public Estado inserir( @RequestBody Estado estado) {
         return estadoSerivce.inserir(estado);
     }
 
     @PutMapping("/")
+    @CrossOrigin("http://localhost:3001")
     public Estado alterar(@RequestBody Estado estado) {
 
         return estadoSerivce.alterar(estado);
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin("http://localhost:3001")
     public ResponseEntity<Void> excluir(@PathVariable Long id) {
         estadoSerivce.excluir(id);
         return ResponseEntity.ok().build();
