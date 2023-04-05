@@ -21,13 +21,13 @@ import dev.service.EstadoSerivce;
 
 @RestController
 @RequestMapping("/api/estado")
-@CrossOrigin("http://localhost:3000")
 public class EstadoController {
 
     @Autowired
     private EstadoSerivce estadoSerivce;
 
     @GetMapping("/")
+    @CrossOrigin("http://localhost:3001")
     public List<Estado> listarTodos() {
 
         return estadoSerivce.listarTodos();
